@@ -172,6 +172,11 @@ public class FormPengembalian extends FormDialog {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         buttonBatal.setText("Batal");
+        buttonBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBatalActionPerformed(evt);
+            }
+        });
 
         buttonSimpan.setText("Simpan");
         buttonSimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -297,6 +302,11 @@ public class FormPengembalian extends FormDialog {
         }
         
     }//GEN-LAST:event_buttonSimpanActionPerformed
+
+    private void buttonBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBatalActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_buttonBatalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
