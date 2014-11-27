@@ -107,14 +107,18 @@ public class BukuController {
                 }
                 break;
             case 0:
-                if(model.insertBuku(buku) > 0){
-                    viewFormBuku.showMessage("Buku berhasil disimpan");
+                if(!model.cekBuku(buku.getNoIsbn())){
+                    if(model.insertBuku(buku) > 0){
+                        viewFormBuku.showMessage("Buku berhasil disimpan");
 
-                    if(viewListBuku != null) viewListBuku.reload();
-                    viewFormBuku.dispose();
+                        if(viewListBuku != null) viewListBuku.reload();
+                        viewFormBuku.dispose();
 
+                    }else{
+                        viewFormBuku.showMessage("Buku gagal disimpan");
+                    }
                 }else{
-                    viewFormBuku.showMessage("Buku gagal disimpan");
+                    viewFormBuku.showMessage("No ISBN sudah terdaftar");
                 }
                 break;
         }
