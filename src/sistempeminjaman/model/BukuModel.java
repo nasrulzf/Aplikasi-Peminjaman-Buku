@@ -38,7 +38,7 @@ public class BukuModel {
     private static final String SQL_SELECT_WHERE = "";
     private static final String SQL_INSERT = "insert into buku (no_isbn, judul, tahun_terbit, penerbit, foto, id_kategori, tanggal_tambah) values(?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE = "update buku set no_isbn = ?, judul = ?, tahun_terbit = ?, penerbit = ?, foto = ?, id_kategori = ? where id_buku = ?";
-    private static final String SQL_CEK_ISBN = "select * from buku where no_isbn = ?";
+    private static final String SQL_CEK_ISBN = "select id_buku, no_isbn, judul, tahun_terbit, penerbit, foto, buku.id_kategori as \"id_kategori\", nama_kategori, tanggal_tambah from buku join kategori using(id_kategori) where no_isbn = ?";
     
     public List<Buku> getAll(){
         PreparedStatement ps;
@@ -106,7 +106,7 @@ public class BukuModel {
         return null;
     }
     
-    public boolean cekBuku(String noIsbn){
+    public Buku getBuku(String noIsbn){
         
         PreparedStatement ps = null;
         ResultSet rs;
@@ -117,14 +117,30 @@ public class BukuModel {
             ps.setString(1, noIsbn);
             rs = ps.executeQuery();
             
+            Buku buku = null;
             if(rs.next()){
-                return true;
+                
+                buku = new Buku();
+                buku.setStrIdBuku(rs.getString(1));
+                buku.setIdBuku(rs.getInt(1));
+                buku.setNoIsbn(rs.getString(2));
+                buku.setJudul(rs.getString(3));
+                buku.setTahunTerbit(rs.getInt(4));
+                buku.setPenerbit(rs.getString(5));
+                Kategori kategori = new Kategori();
+                kategori.setIdKategori(rs.getInt(7));
+                kategori.setNamaKategori(rs.getString(8));
+                buku.setKategori(kategori);
+                
             }
 
+            return buku;
+            
         } catch (SQLException ex) {
             Logger.getLogger(BukuModel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;
+        
+        return null;
         
     }
     
