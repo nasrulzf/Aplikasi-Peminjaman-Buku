@@ -62,8 +62,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="teksISBN" max="32767" attributes="0"/>
                       <Component id="teksJudul" max="32767" attributes="0"/>
+                      <Component id="teksPenerbit" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
@@ -73,7 +73,11 @@
                           <Component id="btnTambahKategori" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="teksPenerbit" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="teksISBN" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="buttonCek" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -86,6 +90,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="teksISBN" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonCek" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -182,6 +187,14 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="teksPenerbit">
+        </Component>
+        <Component class="javax.swing.JButton" name="buttonCek">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ok"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCekActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

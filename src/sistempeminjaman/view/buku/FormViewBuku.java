@@ -59,6 +59,7 @@ public class FormViewBuku extends FormDialog {
         setController(new BukuController(this));
         kController = new KategoriController(this);
         kController.setKategoriBuku();
+        controller.initFormBuku();
         pack();
         setLocationRelativeTo(super.getParent());
         setVisible(true);
@@ -71,6 +72,7 @@ public class FormViewBuku extends FormDialog {
         controller.isTransaksi();
         kController = new KategoriController(this);
         kController.setKategoriBuku();
+        controller.initFormBuku();
         pack();
         setLocationRelativeTo(super.getParent());
         setVisible(true);
@@ -193,6 +195,7 @@ public class FormViewBuku extends FormDialog {
         cbKategori = new javax.swing.JComboBox();
         btnTambahKategori = new javax.swing.JButton();
         teksPenerbit = new javax.swing.JTextField();
+        buttonCek = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         buttonSimpan = new javax.swing.JButton();
         buttonBatal = new javax.swing.JButton();
@@ -227,6 +230,13 @@ public class FormViewBuku extends FormDialog {
             }
         });
 
+        buttonCek.setText("Ok");
+        buttonCek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCekActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -241,8 +251,8 @@ public class FormViewBuku extends FormDialog {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(teksISBN)
                     .addComponent(teksJudul)
+                    .addComponent(teksPenerbit)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -250,7 +260,10 @@ public class FormViewBuku extends FormDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnTambahKategori)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(teksPenerbit))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(teksISBN)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonCek)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -259,7 +272,8 @@ public class FormViewBuku extends FormDialog {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(teksISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(teksISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonCek))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -378,11 +392,48 @@ public class FormViewBuku extends FormDialog {
         controller.setPilihBuku(buku);
         
     }//GEN-LAST:event_buttonPinjamActionPerformed
+    
+    public void initInputForm(boolean status, boolean isbn){
+        
+        teksJudul.setEnabled(status);
+        teksPenerbit.setEnabled(status);
+        yearChooser.setEnabled(status);
+        cbKategori.setEnabled(status);
+        teksISBN.setEnabled(isbn);
+        
+        teksJudul.setText("");
+        teksPenerbit.setText("");
+        yearChooser.setYear(2014);
+        cbKategori.setSelectedIndex(0);
+        
+    }
+    
+    public void initInputForm(Buku buku, boolean status, boolean isbn){
+        
+        initInputForm(status, isbn);
+        
+        teksJudul.setText(buku.getJudul());
+        teksPenerbit.setText(buku.getPenerbit());
+        yearChooser.setYear(buku.getTahunTerbit());
+        cbKategori.setSelectedItem(buku.getKategori().getNamaKategori());
+        
+    }
+    
+    private void buttonCekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCekActionPerformed
+        // TODO add your handling code here:
+        
+       controller.cekBuku();
+        
+    }//GEN-LAST:event_buttonCekActionPerformed
 
+    public int getMode(){
+        return inputMode;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnTambahKategori;
     private javax.swing.JButton buttonBatal;
+    private javax.swing.JButton buttonCek;
     private javax.swing.JButton buttonPinjam;
     private javax.swing.JButton buttonSimpan;
     private javax.swing.JComboBox cbKategori;
