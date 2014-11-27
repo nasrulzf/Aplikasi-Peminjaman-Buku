@@ -34,6 +34,12 @@ public class BukuController {
         model = new BukuModel();
     }
     
+    public void initFormBuku(){
+        
+        viewFormBuku.initInputForm(false, true);
+        
+    }
+    
     public void setDialogType(FormDialog formDialog){
         
         if(formDialog instanceof FormListBuku){
@@ -107,20 +113,33 @@ public class BukuController {
                 }
                 break;
             case 0:
-                if(!model.cekBuku(buku.getNoIsbn())){
-                    if(model.insertBuku(buku) > 0){
-                        viewFormBuku.showMessage("Buku berhasil disimpan");
+                
+                if(model.insertBuku(buku) > 0){
+                    viewFormBuku.showMessage("Buku berhasil disimpan");
 
-                        if(viewListBuku != null) viewListBuku.reload();
-                        viewFormBuku.dispose();
+                    if(viewListBuku != null) viewListBuku.reload();
+                    viewFormBuku.dispose();
 
-                    }else{
-                        viewFormBuku.showMessage("Buku gagal disimpan");
-                    }
                 }else{
-                    viewFormBuku.showMessage("No ISBN sudah terdaftar");
+                    viewFormBuku.showMessage("Buku gagal disimpan");
                 }
+             
                 break;
+        }
+        
+    }
+    
+    public void cekBuku(){
+        
+        Buku buku = model.getBuku(viewFormBuku.getTeksIsbn().getText());
+        
+        if(buku != null){
+            if(viewFormBuku.getMode() == FormViewBuku.AKSI_TAMBAH)
+                viewFormBuku.initInputForm(buku, false, true);
+            else
+                viewFormBuku.initInputForm(buku, true, false);
+        }else{
+            viewFormBuku.initInputForm(true, false);
         }
         
     }
