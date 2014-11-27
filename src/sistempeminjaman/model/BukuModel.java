@@ -38,6 +38,7 @@ public class BukuModel {
     private static final String SQL_SELECT_WHERE = "";
     private static final String SQL_INSERT = "insert into buku (no_isbn, judul, tahun_terbit, penerbit, foto, id_kategori, tanggal_tambah) values(?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE = "update buku set no_isbn = ?, judul = ?, tahun_terbit = ?, penerbit = ?, foto = ?, id_kategori = ? where id_buku = ?";
+    private static final String SQL_CEK_ISBN = "select * from buku where no_isbn = ?";
     
     public List<Buku> getAll(){
         PreparedStatement ps;
@@ -103,6 +104,28 @@ public class BukuModel {
             Logger.getLogger(BukuModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    public boolean cekBuku(String noIsbn){
+        
+        PreparedStatement ps = null;
+        ResultSet rs;
+        
+        try{
+        
+        ps = Koneksi.getConnection().prepareStatement(SQL_CEK_ISBN);
+            ps.setString(1, noIsbn);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                return true;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(BukuModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+        
     }
     
     public List<Buku> getAll(String q, int sType){
