@@ -29,7 +29,6 @@ public class Koneksi {
                 DriverManager.registerDriver(new Driver());
                 conn = DriverManager.getConnection("jdbc:mysql://localhost/dbs_pinjaman", "root", "");
             } catch (SQLException ex) {
-                System.out.println("Error : " + ex.getSQLState());
                 
 //                if(ex.getSQLState().equalsIgnoreCase("08S01")){
 //                    JOptionPane.showMessageDialog(null, "Periksa kembali pengaturan database anda, \nsilahkan periksa manualbook untuk panduan");
