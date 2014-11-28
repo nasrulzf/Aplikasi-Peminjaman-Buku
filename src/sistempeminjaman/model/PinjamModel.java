@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import sistempeminjaman.db.Koneksi;
 import sistempeminjaman.entity.Buku;
 import sistempeminjaman.entity.Peminjaman;
@@ -42,7 +43,7 @@ public class PinjamModel {
             ps.setDate(4, new Date(pinjam.getTanggalKembali().getTime()));
             ps.setDate(5, new Date(pinjam.getTanggal().getTime()));
             return ps.executeUpdate();
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(PinjamModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
@@ -82,7 +83,7 @@ public class PinjamModel {
             
             return list;
             
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(PinjamModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -126,7 +127,7 @@ public class PinjamModel {
             
             return list;
             
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(PinjamModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -176,7 +177,7 @@ public class PinjamModel {
             
             return list;
             
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(PinjamModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
