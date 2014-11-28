@@ -12,6 +12,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,6 +29,12 @@ public class Koneksi {
                 DriverManager.registerDriver(new Driver());
                 conn = DriverManager.getConnection("jdbc:mysql://localhost/dbs_pinjaman", "root", "");
             } catch (SQLException ex) {
+                System.out.println("Error : " + ex.getSQLState());
+                
+                if(ex.getSQLState().equalsIgnoreCase("08S01")){
+                    JOptionPane.showMessageDialog(null, "Periksa kembali pengaturan database anda, \nsilahkan periksa manualbook untuk panduan");
+                }
+                
                 Logger.getLogger(Koneksi.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
