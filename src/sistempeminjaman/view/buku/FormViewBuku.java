@@ -304,6 +304,11 @@ public class FormViewBuku extends FormDialog {
         });
 
         buttonBatal.setText("Batal");
+        buttonBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBatalActionPerformed(evt);
+            }
+        });
 
         buttonPinjam.setText("Pinjam");
         buttonPinjam.addActionListener(new java.awt.event.ActionListener() {
@@ -400,6 +405,7 @@ public class FormViewBuku extends FormDialog {
         yearChooser.setEnabled(status);
         cbKategori.setEnabled(status);
         teksISBN.setEnabled(isbn);
+        btnTambahKategori.setEnabled(status);
         
         teksJudul.setText("");
         teksPenerbit.setText("");
@@ -425,6 +431,11 @@ public class FormViewBuku extends FormDialog {
        controller.cekBuku();
         
     }//GEN-LAST:event_buttonCekActionPerformed
+
+    private void buttonBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBatalActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_buttonBatalActionPerformed
 
     public int getMode(){
         return inputMode;
