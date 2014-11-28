@@ -74,9 +74,9 @@ public class TransaksiController {
         List<Peminjaman> list = model.getList(formCariPeminjaman.getTeksCari().getText(), xxx);
         if(list == null){
             formCariPeminjaman.showMessage("Data tidak ditemukan");
-            formListPeminjaman.setData(list, true);
+            formListPeminjaman.setData(list, false);
         }else{
-            formListPeminjaman.setData(list, true);
+            formListPeminjaman.setData(list, false);
         }
         
         formCariPeminjaman.dispose();
