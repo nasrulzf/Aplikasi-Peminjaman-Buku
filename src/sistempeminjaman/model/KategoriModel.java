@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import sistempeminjaman.db.Koneksi;
 import sistempeminjaman.entity.Kategori;
 
@@ -45,7 +46,7 @@ public class KategoriModel {
             ps.setString(2, kategori.getNamaKategori());
             ps.setInt(3, kategori.getpId());
             return ps.executeUpdate();
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(KategoriModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -65,7 +66,7 @@ public class KategoriModel {
             ps.setInt(2, kategori.getpId());
             ps.setInt(3, kategori.getIdKategori());
             return ps.executeUpdate();
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(KategoriModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -93,7 +94,7 @@ public class KategoriModel {
             }
             return list;
             
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(KategoriModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
@@ -110,7 +111,7 @@ public class KategoriModel {
             if(rs.next()){
                 return rs.getInt(1);
             }
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(BukuModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
@@ -123,7 +124,7 @@ public class KategoriModel {
             ps = Koneksi.getConnection().prepareStatement(SQL_DELETE);
             ps.setString(1, idKategori);
             return ps.executeUpdate();
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(KategoriModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
