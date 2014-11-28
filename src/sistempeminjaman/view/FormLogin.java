@@ -212,8 +212,13 @@ public class FormLogin extends FormDialog {
     
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
         // TODO add your handling code here:
-        Users user = new Users(teksUsername.getText(), String.valueOf(teksPassword.getPassword()));
-        uc.isLoginValid(user);
+        
+        if(teksUsername.getText().trim().isEmpty() || teksPassword.getPassword().length <= 0){
+            JOptionPane.showMessageDialog(this, "Isi username dan password terlebih dahulu");
+        }else{
+            Users user = new Users(teksUsername.getText(), String.valueOf(teksPassword.getPassword()));
+            uc.isLoginValid(user);
+        }
         
     }//GEN-LAST:event_buttonLoginActionPerformed
 
