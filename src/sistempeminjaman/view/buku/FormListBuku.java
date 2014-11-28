@@ -196,6 +196,11 @@ public class FormListBuku extends FormDialog {
         });
 
         buttonRefresh.setText("X");
+        buttonRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRefreshActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -282,6 +287,11 @@ public class FormListBuku extends FormDialog {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_buttonTutupActionPerformed
+
+    private void buttonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefreshActionPerformed
+        // TODO add your handling code here:
+        reload();
+    }//GEN-LAST:event_buttonRefreshActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
