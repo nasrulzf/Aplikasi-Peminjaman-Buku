@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import sistempeminjaman.db.Koneksi;
 import sistempeminjaman.entity.Buku;
 import sistempeminjaman.entity.Kategori;
@@ -89,7 +90,7 @@ public class UserModel {
             
             return 1;
             
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(UserModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -111,7 +112,7 @@ public class UserModel {
             ps.setString(6, userDetail.getAlamat());
             ps.setString(7, userDetail.getNoId());
             return ps.executeUpdate();
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(UserModel.class.getName()).log(Level.SEVERE, null, ex);
         }
             
@@ -130,7 +131,7 @@ public class UserModel {
             if(rs.next()){
                 return rs.getBlob(1);
             }
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(UserModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
@@ -163,7 +164,7 @@ public class UserModel {
             
             return list;
             
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(BukuModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
@@ -211,7 +212,7 @@ public class UserModel {
             
             return list;
             
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(BukuModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
@@ -248,7 +249,7 @@ public class UserModel {
             
             return e_user;
             
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(UserModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -283,7 +284,7 @@ public class UserModel {
             
             return e_user;
             
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(UserModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -300,7 +301,7 @@ public class UserModel {
             if(rs.next()){
                 return rs.getInt(1);
             }
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(BukuModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
