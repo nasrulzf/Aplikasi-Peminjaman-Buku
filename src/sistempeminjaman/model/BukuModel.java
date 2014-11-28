@@ -16,6 +16,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import sistempeminjaman.db.Koneksi;
 import sistempeminjaman.entity.Buku;
 import sistempeminjaman.entity.Kategori;
@@ -68,6 +69,7 @@ public class BukuModel {
             return list;
             
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(BukuModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
@@ -101,6 +103,7 @@ public class BukuModel {
             return list;
             
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(BukuModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
@@ -137,6 +140,7 @@ public class BukuModel {
             return buku;
             
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(BukuModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -184,6 +188,7 @@ public class BukuModel {
             return list;
             
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(BukuModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
@@ -229,6 +234,7 @@ public class BukuModel {
             return list;
             
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(BukuModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
@@ -244,6 +250,7 @@ public class BukuModel {
                 return rs.getInt(1);
             }
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(BukuModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
@@ -264,6 +271,7 @@ public class BukuModel {
             ps.setDate(7, new java.sql.Date(new Date().getTime()));
             return ps.executeUpdate();
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(BukuModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -286,6 +294,7 @@ public class BukuModel {
             ps.setInt(7, buku.getIdBuku());
             return ps.executeUpdate();
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(BukuModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
