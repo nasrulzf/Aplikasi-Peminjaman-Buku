@@ -37,7 +37,7 @@ public class PengembalianModel {
                 ps.setInt(1, pengembalian.getIdPeminjaman());
                 return ps.executeUpdate();
             }
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
             Logger.getLogger(PengembalianModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
