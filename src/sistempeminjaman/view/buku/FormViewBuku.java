@@ -427,8 +427,13 @@ public class FormViewBuku extends FormDialog {
     
     private void buttonCekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCekActionPerformed
         // TODO add your handling code here:
-        
-       controller.cekBuku();
+       
+        if(teksISBN.getText().trim().isEmpty()){
+            showMessage("Isi No ISBN terlebih dahulu");
+            teksISBN.requestFocus();
+        }else{
+            controller.cekBuku();
+        }
         
     }//GEN-LAST:event_buttonCekActionPerformed
 
