@@ -61,9 +61,16 @@ public class BukuController {
         viewListBuku.dispose();
     }
     
-    public void isTransaksi(){
+    public void isTransaksi(Buku buku){
         if(viewFormPeminjaman != null){
+            viewFormBuku.initInputForm(true, true, false);
+            viewFormBuku.getTeksIsbn().setText(buku.getNoIsbn());
+            viewFormBuku.getTeksJudul().setText(buku.getJudul());
+            viewFormBuku.getPenerbit().setText(buku.getPenerbit());
+            viewFormBuku.getYearChooser().setYear(buku.getTahunTerbit());
+            viewFormBuku.getKategori().setSelectedItem(buku.getKategori().getNamaKategori());
             viewFormBuku.setButtonPinjam(true);
+            
         }else{
             viewFormBuku.setButtonPinjam(false);
         }
