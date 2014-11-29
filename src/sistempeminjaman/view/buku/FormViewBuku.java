@@ -69,10 +69,10 @@ public class FormViewBuku extends FormDialog {
         buttonPinjam.setVisible(false);
         setController(controller);
         controller.setDialogType(this);
-        controller.isTransaksi();
         kController = new KategoriController(this);
         kController.setKategoriBuku();
         controller.initFormBuku();
+        controller.isTransaksi(buku);
         pack();
         setLocationRelativeTo(super.getParent());
         setVisible(true);
@@ -397,6 +397,20 @@ public class FormViewBuku extends FormDialog {
         controller.setPilihBuku(buku);
         
     }//GEN-LAST:event_buttonPinjamActionPerformed
+    
+     public void initInputForm(boolean status, boolean isbn, boolean edit){
+        
+         initInputForm(status, isbn);
+         
+        teksJudul.setEditable(edit);
+        teksPenerbit.setEditable(edit);
+        yearChooser.setEnabled(status);
+        cbKategori.setEditable(edit);
+        teksISBN.setEditable(edit);
+        btnTambahKategori.setEnabled(status);
+
+        
+    }
     
     public void initInputForm(boolean status, boolean isbn){
         
