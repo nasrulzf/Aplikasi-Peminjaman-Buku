@@ -377,6 +377,8 @@ public class FormRegistrasi extends FormDialog {
     private void buttonCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCetakActionPerformed
         // TODO add your handling code here:
         
+        if(user == null) JOptionPane.showMessageDialog(this, "Error, kesalahan di Objek user");
+        
         Map dataReport = new HashMap();
         dataReport.put("P_NOID", user.getNoId());
         
