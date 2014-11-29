@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -408,6 +409,8 @@ public class FormRegistrasi extends FormDialog {
         }catch(JRException ex){
             
             //JOptionPane.showMessageDialog(this, ex);
+            
+            JOptionPane.showMessageDialog(null, "Error : " + ex.getMessage());
             
             Logger.getLogger(FormRegistrasi.class.getName()).log(Level.SEVERE, null, ex);
         }
