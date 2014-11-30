@@ -11,6 +11,7 @@ import java.awt.Dialog;
 import java.awt.TextField;
 import java.io.File;
 import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JTextField;
@@ -171,6 +172,10 @@ public class FormViewBuku extends FormDialog {
     
     public JYearChooser getYearChooser(){
         return yearChooser;
+    }
+    
+    public JButton getButtonOk(){
+        return buttonCek;
     }
     
     /**
