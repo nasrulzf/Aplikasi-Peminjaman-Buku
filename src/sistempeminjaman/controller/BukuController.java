@@ -36,7 +36,12 @@ public class BukuController {
     
     public void initFormBuku(){
         
-        viewFormBuku.initInputForm(false, true);
+        if(viewFormBuku.getMode() != FormViewBuku.AKSI_EDIT){
+            viewFormBuku.initInputForm(false, true);
+        }else{
+            viewFormBuku.getButtonOk().setVisible(false);
+        }
+        
         
     }
     
