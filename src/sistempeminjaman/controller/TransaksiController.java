@@ -190,7 +190,7 @@ public class TransaksiController {
         Buku bukuPinjam = new Buku();
         bukuPinjam.setIdBuku(Integer.parseInt(formPeminjaman.getTeksNoBuku().getText()));
         Users member = new Users();
-        member.setIdUser(Integer.parseInt(formPeminjaman.getTeksNoId().getText()));
+        member.setNoId(formPeminjaman.getTeksNoId().getText());
         Users petugas = new Users();
         petugas.setIdUser(1);
         Peminjaman p_entity = new Peminjaman();
