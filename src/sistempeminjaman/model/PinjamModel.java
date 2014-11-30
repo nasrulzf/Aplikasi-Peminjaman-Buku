@@ -38,7 +38,7 @@ public class PinjamModel {
         try {
             ps = Koneksi.getConnection().prepareStatement(SQL_INSERT);
             ps.setInt(1, pinjam.getBuku().getIdBuku());
-            ps.setInt(2, pinjam.getMember().getIdUser());
+            ps.setString(2, pinjam.getMember().getNoId());
             ps.setInt(3, pinjam.getPetugas().getIdUser());
             ps.setDate(4, new Date(pinjam.getTanggalKembali().getTime()));
             ps.setDate(5, new Date(pinjam.getTanggal().getTime()));
